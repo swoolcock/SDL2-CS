@@ -9,9 +9,12 @@
         <RootNamespace>SDL2</RootNamespace>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
-    <PropertyGroup Label="Nuget">
+    <PropertyGroup Label="NuGet">
+        <Authors>ppy Pty Ltd &amp; flibitijibibo</Authors>
         <Title>SDL2#</Title>
         <PackageId>ppy.SDL2-CS</PackageId>
+        <PackageProjectUrl>https://github.com/ppy/SDL2-CS</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ppy/SDL2-CS</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
         <Content Include="$(MSBuildThisFileDirectory)native\win-x64\SDL2.dll">
