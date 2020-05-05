@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euf -o pipefail
+
+hg clone https://hg.libsdl.org/SDL SDL
+cd SDL
+mkdir build
+cd build
+../configure --prefix=/io
+make -j$(nproc)
+make install
