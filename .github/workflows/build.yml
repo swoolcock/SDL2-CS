@@ -24,7 +24,8 @@ jobs:
     - name: Create pull request
       uses: peter-evans/create-pull-request@v2
       with:
-        commit-message: 'Update Linux SDL binaries'
+        commit-message: Update Linux SDL binaries
+        title: Update Linux SDL binaries
         body: This PR has been auto-generated to update the Linux SDL binaries.
         branch: update-linux-binaries
 
