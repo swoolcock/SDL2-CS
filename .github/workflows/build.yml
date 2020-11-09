@@ -1,8 +1,33 @@
-name: build-linux
+name: build-native
 on: [push]
 #  schedule:
 #    - cron: '0 0 * * *'
 jobs:
+  build-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install mercurial
+      run: brew install hg
+    - name: Check out SDL sources
+      run: |
+        hg clone https://hg.libsdl.org/SDL /tmp/SDL
+    - name: Build binaries
+      run: |
+        cd /tmp/SDL
+        ./configure
+        make
+        make install
+    - name: copy built binary
+      run: cp /usr/local/lib/libSDL2-2.0.0.dylib native/osx-x64/libSDL2.dylib
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        commit-message: Update macOS SDL binaries
+        title: Update macOS SDL binaries
+        body: This PR has been auto-generated to update the macOS SDL binaries.
+        branch: update-macos-binaries
+
   build-linux:
     runs-on: ubuntu-latest
     steps:
