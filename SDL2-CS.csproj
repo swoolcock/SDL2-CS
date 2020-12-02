@@ -32,6 +32,16 @@
             <PackagePath>runtimes/osx-x64/native</PackagePath>
             <Pack>true</Pack>
         </Content>
+        <Content Include="$(MSBuildThisFileDirectory)native\linux-x64\libSDL2.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <PackagePath>runtimes/linux-x64/native</PackagePath>
+            <Pack>true</Pack>
+        </Content>
+        <Content Include="$(MSBuildThisFileDirectory)native\linux-x86\libSDL2.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <PackagePath>runtimes/linux-x86/native</PackagePath>
+            <Pack>true</Pack>
+        </Content>
     </ItemGroup>
     <ItemGroup>
         <Content Include="app.config">
