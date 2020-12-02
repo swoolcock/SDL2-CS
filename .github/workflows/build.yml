@@ -41,14 +41,14 @@ jobs:
         cd linux-build
         docker build -t sdl2-i386 -f Dockerfile.i386 .
         docker run -v `pwd`/compile:/entry -v /tmp/i386:/io -v /tmp/SDL:/src sdl2-i386
-        cp /tmp/i386/lib/libSDL2-2.0.so.0 ../native/linux-x86
+        cp /tmp/i386/lib/libSDL2-2.0.so.0 ../native/linux-x86/libSDL2.so
     - name: Build amd64 binaries
       run: |
         mkdir /tmp/amd64
         cd linux-build
         docker build -t sdl2-amd64 -f Dockerfile.amd64 .
         docker run -v `pwd`/compile:/entry -v /tmp/amd64:/io -v /tmp/SDL:/src sdl2-amd64
-        cp /tmp/amd64/lib/libSDL2-2.0.so.0 ../native/linux-x64
+        cp /tmp/amd64/lib/libSDL2-2.0.so.0 ../native/linux-x64/libSDL2.so
     - name: Create pull request
       uses: peter-evans/create-pull-request@v2
       with:
